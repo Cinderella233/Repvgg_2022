@@ -40,7 +40,7 @@ from RepVGG import (
     create_RepVGG_B2,
     create_RepVGG_B3,
 )
-from ResNet import ResNet
+
 from utils.utils import mixup_data, mixup_criterion, LabelSmoothingCrossEntropy
 from utils.ewma import EWMAModel
 
@@ -117,7 +117,7 @@ def parse():
     parser.add_argument("--local_rank", default=0, type=int)
 
     # My additional args
-    parser.add_argument("--model", type=str, default="RepVGG")
+    parser.add_argument("--model", type=str, default="RepVGGA0")
     parser.add_argument("--CIFAR10", type=bool, default=False)
     parser.add_argument("--CIFAR100", type=bool, default=False)
     parser.add_argument("--RandAugN", type=int, default=1)
