@@ -24,7 +24,7 @@ import math
 import numpy as np
 
 
-from RandAugment import RandAugment
+from randaugment import randaugment
 from torchvision.datasets import CIFAR10, ImageFolder, CIFAR100
 import wandb
 
@@ -166,8 +166,7 @@ def main():
         if args.model == "RepVGGB3":
             model = create_RepVGG_B2(num_classes=args.num_classes)
 
-        elif args.model == "ResNet":
-            model = ResNet(filters_list=[16, 32, 64], N=3)
+
 
         else:
             pass
@@ -220,7 +219,7 @@ def main():
                 ),
             ]
         )
-        transform_train.transforms.insert(0, RandAugment(args.RandAugN, args.RandAugM))
+        # transform_train.transforms.insert(0, randaugment(args.RandAugN, args.RandAugM))
 
         transform_test = transforms.Compose(
             [
@@ -259,7 +258,7 @@ def main():
                 ),
             ]
         )
-        transform_train.transforms.insert(0, RandAugment(args.RandAugN, args.RandAugM))
+        # transform_train.transforms.insert(0, randaugment(args.RandAugN, args.RandAugM))
 
         transform_test = transforms.Compose(
             [
